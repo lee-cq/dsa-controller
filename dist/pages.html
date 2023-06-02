@@ -1,0 +1,44 @@
+<!-- Pages 页面 -->
+
+{% for page in pages%}
+<article class="">
+    <header class="article-header">
+        <div class="article-details">
+            <header class="article-category">
+                <a href="{{ page.get('link') }}" style="background-color: #2a9d8f; color: #fff;">
+                    {{ page.source }}
+                </a>
+            </header>
+            <h2 class="article-title">
+                <a href="/p/video-test/">{{ page.title }}</a>
+            </h2>
+            <h3 class="article-subtitle">
+                {{ page.context}}
+            </h3>
+            <footer class="article-time">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24"
+                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4"></path>
+                        <circle cx="9" cy="9" r="2"></circle>
+                    </svg>
+                    {关键字}
+                </p>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock"
+                         width="24"
+                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <polyline points="12 7 12 12 15 15"></polyline>
+                    </svg>
+                    <time class="article-time--published">page.update_time</time>
+                </p>
+            </footer>
+        </div>
+    </header>
+</article>
+{% endfor %}

@@ -1,0 +1,141 @@
+<html lang="zh-cn" data-scheme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Search</title>
+<!--    <link rel="canonical" href="https://blog.leecq.cn/search/">-->
+    <link rel="stylesheet" href="/dist/css/style.min.css">
+    <meta property="og:title" content="Search">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Page">
+    <meta name="twitter:title" content="Search">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:card" content="summary_large_image">
+<!--    <meta name="twitter:image" content="https://blog.leecq.cn/img/tag.png">-->
+<!--    <link rel="alternate" type="application/json" href="https://blog.leecq.cn/search/index.json">-->
+<!--    <link rel="preload" href="https://blog.leecq.cn/search/index.json" as="fetch" crossorigin="anonymous">-->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;display=swap" type="text/css"
+          rel="stylesheet">
+</head>
+<body class="template-search" style="transition: background-color 0.3s ease 0s;">
+<script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+</script>
+<script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+
+</script>
+<div class="container main-container flex on-phone--column extended">
+    <aside class="sidebar left-sidebar sticky">
+        <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+        </button>
+
+        <header class="site-info">
+
+<!--            <figure class="site-avatar">
+                TODO 文章来源聚合
+-->
+
+
+<!--                <img src="/img/avatar_hub27c95881c4bc3cd7c2934c20c192686_12257_300x0_resize_box_2.png" width="300"-->
+<!--                     height="300" class="site-logo" loading="lazy" alt="Avatar">-->
+
+
+<!--                <span class="emoji">🍥</span>-->
+
+<!--            </figure>-->
+
+<!--            <h1 class="site-name">&lt;!&ndash;<a href="https://blog.leecq.cn">???</a>&ndash;&gt;</h1>-->
+<!--            <h2 class="site-description">???</h2>-->
+        </header>
+
+        <ol class="menu" id="main-menu">
+
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24"
+                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                    <circle cx="8" cy="12" r="2"></circle>
+                    <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24"
+                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                    <circle cx="16" cy="12" r="2"></circle>
+                    <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+                </svg>
+                <span>暗色模式</span>
+            </li>
+        </ol>
+    </aside>
+    <main class="main full-width">
+        <form action="/search/" class="search-form"
+              data-json="/dist/search/index.json">
+            <p>
+                <label>搜索</label>
+                <input name="keyword" placeholder="输入关键词...">
+            </p>
+
+            <p>
+                <!-- TODO 文章来源选择器 -->
+
+            </p>
+
+            <button title="搜索">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24"
+                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                    <circle cx="10" cy="10" r="7"></circle>
+                    <line x1="21" y1="21" x2="15" y2="15"></line>
+                </svg>
+            </button>
+        </form>
+
+        <h3 class="search-result--title section-title"></h3>
+        <div class="search-result--list article-list--compact"></div>
+
+        <script>    window.searchResultTitleTemplate = "#PAGES_COUNT 个结果 （用时 #TIME_SECONDS 秒）"     </script>
+        <script type="text/javascript" src="/dist/js/search.js" defer=""></script>
+    </main>
+</div>
+<script src="/dist/js/vibrant.min.js"
+        integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous" defer="false">
+</script>
+<script type="text/javascript" src="/dist/js/main.js" defer=""></script>
+<script>(function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());</script>
+</body>
+</html>

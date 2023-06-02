@@ -1,0 +1,70 @@
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;display=swap" type="text/css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://blog.leecq.cn/scss/style.min.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+            integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous" defer="false">
+    </script>
+</head>
+
+<body>
+
+<script type="text/javascript" src="https://blog.leecq.cn/ts/main.js" defer=""></script>
+<script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+</script>
+<script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+
+
+</script>
+<script type="text/javascript"></script>
+<div class="container main-container flex on-phone--column extended">
+    <aside class="sidebar left-sidebar sticky"></aside>
+    <main class="main full-width">
+        <form id="search-from" action="javascript:" class="search-form widget">
+            <div>
+                <label>搜索</label>
+                <input name="keyword" required="" placeholder="输入关键词...">
+
+                <button title="搜索">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24"
+                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                        <circle cx="10" cy="10" r="7"></circle>
+                        <line x1="21" y1="21" x2="15" y2="15"></line>
+                    </svg>
+                </button>
+            </div>
+        </form>
+        <section class="article-list">
+        </section>
+        <nav class="pagination">
+            <span class="page-link current">1</span>
+            <a class="page-link" href="/page/2/">2</a>
+            <a class="page-link" href="/page/3/">3</a>
+        </nav>
+    </main>
+    <aside class="sidebar right-sidebar sticky"></aside>
+</div>
+</body>
+</html>

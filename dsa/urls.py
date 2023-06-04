@@ -26,5 +26,5 @@ urlpatterns = [
     path('logout/', views.logout_view, name="logout_view"),
     path('search/', views.search),
     path('result.json', views.result_json),
-    path("api/", include("spiderman.urls")),
+    path("apis/", include("apis.urls")),
 ]

@@ -69,21 +69,23 @@ def config_put(request, name):
 def config_del(request, name):
     """删除config"""
 
-# class ConfigViews(View):
-#     """配置视图 -
-#
-#     用于管理和查找配置
-#     """
-#     model = Config
-#
-#     def get(self, request, *args, **kwargs):
-#         """查询"""
-#
-#     def post(self, request, *args, **kwargs):
-#         """新增"""
-#
-#     def put(self, request, *args, **kwargs):
-#         """更新"""
-#
-#     def del_(self, request, *args, **kwargs):
-#         """删除"""
+
+class ConfigViews(View):
+    """配置视图 -
+
+    用于管理和查找配置
+    """
+    model = Config
+
+    def get(self, request, *args, **kwargs):
+        """查询"""
+        self.model.objects.filter(name='test').all()
+
+    def post(self, request, *args, **kwargs):
+        """新增"""
+
+    def put(self, request, *args, **kwargs):
+        """更新"""
+
+    def del_(self, request, *args, **kwargs):
+        """删除"""

@@ -8,11 +8,9 @@ from django.shortcuts import get_object_or_404
 from ..models import *
 
 from .config import config, configs
-# from .page import PageView
-# from .comment import CommentView
+from .page import page, pages
 
-
-# __all__ = ['index', 'ConfigView', 'PageView', 'CommentView']
+__all__ = ['index', 'config', 'configs', 'page', 'pages']
 
 
 def index(request):
